@@ -9,6 +9,7 @@ module.exports = class Game {
     for (let i = 0; i < this.frames; i++) {
       this.player.frame[i] = new Array(3);
     }
+    return this.player.frame;
   }
 
   initializePlayerFrame() {
@@ -17,6 +18,7 @@ module.exports = class Game {
         this.player.frame[i][j] = 0;
       }
     }
+    return this.player.frame;
   }
 
   addScores(sentFrame) {

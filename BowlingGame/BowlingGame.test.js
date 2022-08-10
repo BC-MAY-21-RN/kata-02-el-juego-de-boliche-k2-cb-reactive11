@@ -14,6 +14,27 @@ afterEach(() => {
   bg = undefined;
 });
 
+test("Create Frame", () => {
+  testFrame = new Array(10);
+  for (let i = 0; i < 10; i++) {
+    testFrame[i] = new Array(3);
+  }
+  expect(bg.createPlayerFrame()).toStrictEqual(testFrame);
+});
+
+test("Initialize Frame", () => {
+  let testFrame = new Array(10);
+  for (let i = 0; i < 10; i++) {
+    testFrame[i] = new Array(3);
+  }
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j <= 3; j++) {
+      testFrame[i][j] = 0;
+    }
+  }
+  expect(bg.initializePlayerFrame()).toStrictEqual(testFrame);
+});
+
 test("adds score", () => {
   scores = [
     [1, 4, 0, 0],
@@ -33,4 +54,11 @@ test("adds score", () => {
 test("adds random score", () => {
   scores = bg.addRandomScores();
   expect(bg.addScores(scores)).toStrictEqual(scores);
+});
+
+test("check isStrike", () => {
+  let testFrame = new Array(2);
+  testFrame[0] = 10;
+  testFrame[1] = 0;
+  expect(bg.IsStrike(testFrame)).toBe(true);
 });
